@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+    text-align: inherit;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-image: url('/imagens/fun.jpg');
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px 0 rgb(0 75 40);
+    background-image: linear-gradient(10deg, orange, pink);
+    width: 276px;
+    height: 477px;
+}
+
+form > * {
+    margin: 10px;
+}
+
+input{
+    padding: 7px 14px;
+    border-radius: 13px;
+    border: 1px solid blueviolet;
+}
+
+button{
+    padding: 10px;
+    border-radius: 18px;
+    text-transform: uppercase;
+    border: none;
+    background-image: linear-gradient(174deg, black, orange);
+    color: #FFF;
+}
