@@ -17,5 +17,11 @@ class Livro {
 
     }
    
+    public static function inserir($dados){
+
+        $sql = "INSERT INTO LIVROS(titulo, autor, pdf) VALUES(?,?,?)";
+        $parans = [$dados['titulo'], $dados['autor'], $dados['pdf']];
+        DB::insert($sql,$parans);
+    }
 
 }

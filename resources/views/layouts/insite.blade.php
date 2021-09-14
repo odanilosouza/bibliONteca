@@ -21,9 +21,9 @@
 
         <img src="/imagens/usuario.png" width="28px" height="30px">
     </header>
-
-    @yield('conteudo')
-
+    <div id="conteudo">
+        @yield('conteudo')
+    </div>
     <footer>
         bibliONteca 2021
     </footer>

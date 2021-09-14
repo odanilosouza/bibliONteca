@@ -1,0 +1,22 @@
+ #conteudo {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ #formCadastroLivro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    padding: 20px;
+    background-color: rgba(0 0 0 /0.25);
+    border-radius: 10px; 
+ }
+
+ #formCadastroLivro > * {
+    margin: 10px;
+ 
+ }
