@@ -12,10 +12,10 @@
 
 <body>
     <header>
-        <img src="/imagens/logobibli.jpg" width="38px" height="37px">
+       <a href="/"> <img src="/imagens/logobibli.jpg" width="38px" height="37px"></a>
 
         <form action="/">
-            <input id="barraBusca" type="text" name="busca" placeholder="Busque por livro, autor ou categoria...">
+            <input id="barraBusca" type="text" name="busca" placeholder="Busque por livro, autor ou categoria..." value="<?php echo @$_REQUEST['busca'] ?>">
             <button type="submit"><img src="/imagens/busca.png" width="31px"></button>
         </form>
 

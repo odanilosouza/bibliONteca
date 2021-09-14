@@ -4,8 +4,17 @@ namespace App\Http\Controllers;
 use App\Models\Livro;
 use Illuminate\Routing\Controller as BaseController;
 
-class LivroController extends BaseController
+class   LivroController extends BaseController
 {
+    public function listagem(){
+        
+        $livros = Livro::todos();
+        return view('Livros.listagem', [
+            "livros" => $livros
+        ]);
+    }
+
+
     public function viewCadastro(){
 
         return view(('livros.cadastro'));
@@ -23,6 +32,15 @@ class LivroController extends BaseController
             "autor" => $_REQUEST['autor'],
             "pdf" => "\livros\\$hash.pdf"
         ]);
+
+        return redirect('/livros/listagem');
     }
+
+    public function excluir(){
+         
+        Livro::excluir($_REQUEST['id']);
+        return redirect('/livros/listagem');
+
+    } 
 
 }

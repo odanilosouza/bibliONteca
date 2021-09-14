@@ -24,4 +24,12 @@ class Livro {
         DB::insert($sql,$parans);
     }
 
+    public static function excluir($idLivro){
+
+        $sql = "DELETE FROM livros WHERE id = ?";
+        $parans = [$idLivro];
+        DB::delete($sql, $parans);
+
+    }
+
 }

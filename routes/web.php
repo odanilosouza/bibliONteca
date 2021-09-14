@@ -12,5 +12,8 @@ Route::get('/login',[LoginController::class, 'mostrarView']);
 Route::post('/logar',[LoginController::class, 'logar']);
 Route::get('/',[HomeController::class, 'mostrarView']);
 
+Route::get('/livros/listagem', [LivroController::class, 'listagem']);
+
 Route::get('/livros/cadastro', [LivroController::class, 'viewCadastro']);
 Route::post('/livros/cadastrar', [LivroController::class, 'cadastrar']);
+Route::get('livros/excluir', [LivroController::class, 'excluir']);

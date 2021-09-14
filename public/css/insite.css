@@ -70,3 +70,13 @@ footer{
     box-shadow: 0 0 6px 0px rgb(0 0 0 / 75%);
 }
 
+.btn {
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 2em;
+    text-decoration: none;
+    background-color: #00000075;
+    margin-bottom: 27px;
+}
+
