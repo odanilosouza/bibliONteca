@@ -1,4 +1,4 @@
-# bibliONteca -
+# bibliONteca - PHP8 + Framework Laravel
 
 Tecnologias utilizadas:
  PHP8 + Framework Laravel
