@@ -19,7 +19,7 @@
                 <td> <?php echo $livro->autor;?> </td>
                 <td>
                     <a href="<?php echo $livro->pdf;?>" download=" <?php echo $livro->titulo;?>">Download</a>
-                    <a href="">Editar</a>
+                    <a href="/livros/cadastro?id=<?php echo $livro->id; ?>">Editar</a>
                     <a href="/livros/excluir?id=<?php echo $livro->id; ?>">Excluir</a>
                 </td>
             </tr>

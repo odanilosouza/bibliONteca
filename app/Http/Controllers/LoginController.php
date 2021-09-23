@@ -29,7 +29,7 @@ class LoginController extends BaseController
        }
 
        session(['usuario' => $usuario]);
-       return redirect("/home");
+       return redirect("/");
 
    }
 

@@ -17,28 +17,47 @@ class   LivroController extends BaseController
 
     public function viewCadastro(){
 
-        return view(('livros.cadastro'));
-    }
+        $livro = null;
 
+        if(@$_REQUEST['id']){
+            $livro = Livro::buscarPorId($_REQUEST['id']);
+        }
+
+        return view('livros.cadastro',[
+            "livro" => $livro
+        ]);
+    }
 
     public function cadastrar(){
         
-        $hash = md5_file($_FILES['livro']['tmp_name']);
-
-        move_uploaded_file($_FILES['livro']['tmp_name'],$_SERVER['DOCUMENT_ROOT'] . "\livros\\$hash.pdf" );
+       $CaminhoDoLivro = Livro::addPdfLivro();
 
         Livro::inserir([
             "titulo" => $_REQUEST['titulo'],
             "autor" => $_REQUEST['autor'],
-            "pdf" => "\livros\\$hash.pdf"
+            "pdf" => $CaminhoDoLivro
         ]);
 
         return redirect('/livros/listagem');
     }
+ 
+    public function editar(){
+
+        Livro::editar($_REQUEST['id'],$_REQUEST['titulo'], $_REQUEST['autor']);
+
+        if(@$_FILES['livro']){
+            $novoCaminhoDoLivro = Livro::substituirPdfLivro($_REQUEST['id']);
+            Livro::atualizarCaminhoLivro($_REQUEST['id'], $novoCaminhoDoLivro);
+
+        }
+
+        return redirect('livros/listagem');
+    }
 
     public function excluir(){
          
-        Livro::excluir($_REQUEST['id']);
+        Livro::removerPdfLivro($_REQUEST['id']);
+        Livro::excluir($_REQUEST['id']);       
         return redirect('/livros/listagem');
 
     } 

@@ -32,4 +32,48 @@ class Livro {
 
     }
 
+    public static function buscarPorId($idLivro){
+        
+        return DB::table('livros')->find($idLivro);
+    }   
+
+    public static function editar($idLivro, $titulo, $autor){
+        
+        DB::table('livros')->where('id', '=', $idLivro)->update([
+            "titulo" => $titulo,
+            "autor" => $autor 
+        ]);
+        
+    }
+    public static function atualizarCaminhoLivro($idLivro, $novoCaminhoDoLivro){
+
+        DB::table('livros')->where('id', '=', $idLivro)->update([
+            "pdf" => $novoCaminhoDoLivro
+        ]);
+
+    }
+
+
+    public static function addPdfLivro(){
+
+        $hash = md5_file($_FILES['livro']['tmp_name']);
+        move_uploaded_file($_FILES['livro']['tmp_name'],$_SERVER['DOCUMENT_ROOT'] . "\livros\\$hash.pdf" );
+        return "\livros\\$hash.pdf";
+    }
+
+    public static function substituirPdfLivro($idLivro){
+
+        Livro::removerPdfLivro($idLivro);
+        return Livro::addPdfLivro();
+
+    }
+
+
+    public static function removerPdfLivro($idLivro){
+
+        $livro = DB::table('livros')->find($idLivro);
+        $CaminhoAbsolutoDoLivro = $_SERVER['DOCUMENT_ROOT'] . $livro->pdf;
+        @unlink($CaminhoAbsolutoDoLivro);
+    }
+
 }

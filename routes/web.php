@@ -16,4 +16,5 @@ Route::get('/livros/listagem', [LivroController::class, 'listagem']);
 
 Route::get('/livros/cadastro', [LivroController::class, 'viewCadastro']);
 Route::post('/livros/cadastrar', [LivroController::class, 'cadastrar']);
+Route::post('/livros/editar', [LivroController::class, 'editar']);
 Route::get('livros/excluir', [LivroController::class, 'excluir']);
